@@ -1,0 +1,26 @@
+{
+  "name": "mesos-framework-ts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stepancar/mesos-framework-ts.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stepancar/mesos-framework-ts/issues"
+  },
+  "homepage": "https://github.com/stepancar/mesos-framework-ts#readme",
+  "devDependencies": {
+    "@types/node": "^8.0.53",
+    "@types/node-fetch": "^1.6.7"
+  },
+  "dependencies": {
+    "node-fetch": "^1.7.3"
+  }
+}
