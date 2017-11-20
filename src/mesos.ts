@@ -1,4 +1,5 @@
 import fetch from 'node-fetch'
+import { StringDecoder } from 'string_decoder';
 import { Scheduler } from "./scheduler";
 
 export class Mesos {
@@ -27,6 +28,13 @@ export class Mesos {
         });
 
         const streamId = response.headers.get('Mesos-Stream-Id');
+        //const td = new StringDecoder();
+        response.body.on('data', function(chunk: Buffer) {
+            const dataStr = chunk.toString();
+            const event = JSON.parse(dataStr.slice(dataStr.indexOf('{'))); // trim size;
+            scheduler.handle(event);
+            //console.log(new Buffer(chunk).toString());
+        });
 
         console.log(streamId);
     }
