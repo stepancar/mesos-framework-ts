@@ -1,4 +1,5 @@
 import { Mesos } from './mesos';
+import { Task } from './task';
 
 export class Scheduler {
     constructor(public name = '', public mesos: Mesos) {
@@ -24,5 +25,13 @@ export class Scheduler {
                 break;
             }
         }
+    }
+
+    run(task: Task) {
+        this.mesos.run(task);
+    }
+
+    stop(taskId: string) {
+        this.mesos.stop(taskId);
     }
 }

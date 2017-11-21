@@ -1,6 +1,7 @@
 import fetch from 'node-fetch'
 import { StringDecoder } from 'string_decoder';
 import { Scheduler } from "./scheduler";
+import { Task } from './task';
 
 export class Mesos {
     constructor(private apiUrl: string) {
@@ -33,9 +34,16 @@ export class Mesos {
             const dataStr = chunk.toString();
             const event = JSON.parse(dataStr.slice(dataStr.indexOf('{'))); // trim size;
             scheduler.handle(event);
-            //console.log(new Buffer(chunk).toString());
         });
 
         console.log(streamId);
+    }
+
+    run(task: Task) {
+        // call mesos
+    }
+
+    stop(taskId: string) {
+        // call mesos
     }
 }
